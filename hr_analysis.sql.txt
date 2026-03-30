@@ -1,0 +1,25 @@
+CREATE TABLE Employee (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT,
+    experience INT
+);
+
+INSERT INTO Employee VALUES
+(1, 'Manya', 'IT', 50000, 2),
+(2, 'Rahul', 'HR', 40000, 3),
+(3, 'Sneha', 'IT', 70000, 5),
+(4, 'Amit', 'Finance', 60000, 4),
+(5, 'Neha', 'HR', 45000, 2);
+
+-- Queries
+SELECT department, AVG(salary) AS avg_salary FROM Employee GROUP BY department;
+
+SELECT * FROM Employee ORDER BY salary DESC LIMIT 1;
+
+SELECT * FROM Employee WHERE salary > (SELECT AVG(salary) FROM Employees);
+
+SELECT department, COUNT(*) AS total_emp FROM Employee GROUP BY department;
+
+SELECT * FROM Employee WHERE experience > 3;
